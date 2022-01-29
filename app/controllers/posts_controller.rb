@@ -1,9 +1,11 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
-  before_action :authenticate_user!, except: %i[show index]
+  before_action :authenticate_user!
   # GET /posts or /posts.json
   def index
     @posts = Post.all
+    @post = Post.new
+    render layout: false if params[:inline] == 'true'
   end
 
   # GET /posts/1 or /posts/1.json
@@ -68,7 +70,7 @@ class PostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, images: [])
   end
 
   def mark_notifications_as_read
