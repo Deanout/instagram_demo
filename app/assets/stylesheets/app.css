@@ -1,3 +1,9 @@
 .post_article {
   margin-bottom: 2em;
 }
+.nav_avatar {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 0.5em;
+}

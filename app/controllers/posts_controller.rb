@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
     @post = Post.new
     render layout: false if params[:inline] == 'true'
   end

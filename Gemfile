@@ -78,3 +78,5 @@ gem 'devise', '~> 4.8'
 gem 'simple_form', '~> 5.1'
 
 gem "noticed", "~> 1.5"
+
+gem "image_processing", "~> 1.12"

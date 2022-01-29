@@ -56,28 +56,29 @@
             <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
               <% @unread_notifications.each do |notification| %>
                 <li class="d-flex">
-                  <%= link_to "New Comment: #{notification.params[:post].body.truncate(25, omission: '...')}", notification.to_notification.url, class:"dropdown-item" %>
+                  <span><%= image_tag(Post.find(notification.params[:post].id).navbar_image, class:'nav_avatar') %></span><%= link_to " #{notification.params[:post].body.truncate(25, omission: '...')}", notification.to_notification.url, class:"dropdown-item" %>
                 </li>
               <% end %>
               <li class="dropdown-divider"></li>
               <% @read_notifications.each do |notification| %>
-                <li><%= link_to "Comment on: #{notification.params[:post].body.truncate(25, omission: '...')}", notification.to_notification.url, class:"dropdown-item" %></li>
+                <li class="d-flex"><span><%= image_tag(Post.find(notification.params[:post].id).navbar_image, class:'nav_avatar') %></span><%= link_to "#{notification.params[:post].body.truncate(25, omission: '...')}", notification.to_notification.url, class:"dropdown-item" %></li>
               <% end %>
             </ul>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                User
-              </a>
-              <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
-                <li class="dropdown-divider"></li>
-                <li>
-                  <%= link_to "Edit Account", edit_user_registration_path, class:"dropdown-item" %>
-                </li>
-              </ul>
+                <span><%= image_tag(current_user.nav_avatar, class:'nav_avatar') if current_user.avatar.attached? %>
+                  <%= current_user.username unless current_user.username.nil? %>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
+                  <li class="dropdown-divider"></li>
+                  <li>
+                    <%= link_to "Edit Account", edit_user_registration_path, class:"dropdown-item" %>
+                  </li>
+                </ul>
+              </li>
             </li>
-          </li>
-        </ul>
-      <% end %>
+          </ul>
+        <% end %>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>

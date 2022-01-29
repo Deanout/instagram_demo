@@ -13,7 +13,7 @@
   <div class="carousel-inner">
     <% post.images.each_with_index do |image, index| %>
       <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
-        <%= image_tag(image, class: "d-block w-100") %>
+        <%= link_to image_tag(image, class: "d-block w-100"), current_page?(post) ? root_path : post %>
       </div>
     <% end %>
   </div>

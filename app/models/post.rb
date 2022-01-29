@@ -6,4 +6,10 @@ class Post < ApplicationRecord
   has_noticed_notifications
 
   has_many_attached :images
+
+  def navbar_image
+    return '/assets/default_profile.jpg' unless images.attached?
+
+    images[0].variant(resize_to_limit: [25, 25]).processed
+  end
 end
