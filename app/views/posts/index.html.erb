@@ -1,0 +1,16 @@
+<h1>Posts</h1>
+<% if current_user %>
+  <%= button_to "Logout", destroy_user_session_path, method: :delete, class:'btn btn-primary' %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path %>
+  <%= link_to "Login", new_user_session_path %>
+<% end %>
+<div id="posts">
+  <% @posts.each do |post| %>
+    <%= render post %>
+    <p>
+      <%= link_to "Show this post", post %>
+    </p>
+  <% end %>
+</div>
+<%= link_to "New post", new_post_path %>
