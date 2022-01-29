@@ -30,11 +30,11 @@
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to new_post_path, remote: true do %>
+            <a href='' data-bs-toggle="modal" data-bs-target="#exampleModal" %>
               <span class="nav-link">
                 <i class="bi bi-plus-square"></i>
               </span>
-            <% end %>
+            </a>
           </li>
           <li class="nav-item">
             <%= link_to '#' do %>
@@ -56,12 +56,12 @@
             <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
               <% @unread_notifications.each do |notification| %>
                 <li class="d-flex">
-                  <%= link_to "New Comment: #{notification.params[:post].title}", notification.to_notification.url, class:"dropdown-item" %>
+                  <%= link_to "New Comment: #{notification.params[:post].body.truncate(25, omission: '...')}", notification.to_notification.url, class:"dropdown-item" %>
                 </li>
               <% end %>
               <li class="dropdown-divider"></li>
               <% @read_notifications.each do |notification| %>
-                <li><%= link_to "Comment on: #{notification.params[:post].title}", notification.to_notification.url, class:"dropdown-item" %></li>
+                <li><%= link_to "Comment on: #{notification.params[:post].body.truncate(25, omission: '...')}", notification.to_notification.url, class:"dropdown-item" %></li>
               <% end %>
             </ul>
             <li class="nav-item dropdown">
