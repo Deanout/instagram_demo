@@ -12,4 +12,8 @@ class Post < ApplicationRecord
 
     images[0].variant(resize_to_limit: [25, 25]).processed
   end
+
+  def thumbnail_image
+    images[0].variant(resize_to_limit: [500, 500]).processed
+  end
 end

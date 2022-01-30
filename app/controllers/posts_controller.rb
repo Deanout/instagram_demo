@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
   before_action :authenticate_user!
+  include PostsHelper
   # GET /posts or /posts.json
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = construct_timeline
     @post = Post.new
     render layout: false if params[:inline] == 'true'
   end
@@ -59,6 +60,11 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def explore
+    @posts = Post.all.order(created_at: :desc)
+    render layout: false if params[:inline] == 'true'
   end
 
   private

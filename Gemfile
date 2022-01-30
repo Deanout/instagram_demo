@@ -80,3 +80,5 @@ gem 'simple_form', '~> 5.1'
 gem "noticed", "~> 1.5"
 
 gem "image_processing", "~> 1.12"
+
+gem "friendly_id", "~> 5.4"
