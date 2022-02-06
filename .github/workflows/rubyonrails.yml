@@ -34,7 +34,7 @@ jobs:
         with:
           bundler-cache: true
       - name: Install Imagemagick
-      - run: sudo apt-get install imagemagick
+        run: sudo apt-get install imagemagick
       # Add or replace database setup steps here
       - name: Set up database schema
         run: bin/rails db:schema:load
