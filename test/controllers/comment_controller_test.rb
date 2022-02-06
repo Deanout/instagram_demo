@@ -3,8 +3,16 @@
 require 'test_helper'
 
 class CommentControllerTest < ActionDispatch::IntegrationTest
-  test 'should get create' do
-    get comment_create_url
-    assert_response :success
+  setup do
+    @user = users(:regular)
+    sign_in(@user)
+    @post = posts(:one)
+    @comment = @post.comments.build(body: 'Test comment')
+  end
+
+  test 'should create comment' do
+    assert_difference('Comment.count') do
+      post post_comments_url(comment: { body: @comment.body }, post_id: @post.id)
+    end
   end
 end

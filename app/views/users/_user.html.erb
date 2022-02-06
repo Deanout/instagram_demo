@@ -37,7 +37,7 @@
       <div class="row">
         <% user.posts.each do |post| %>
           <div class="col-4" style="margin-bottom: 1em;">
-            <%= image_tag(post.thumbnail_image, style:'object-fit: cover; width: 300px; height: 300px;') %>
+            <%= image_tag(post.thumbnail_image, style:'object-fit: cover; width: 300px; height: 300px;') if post.images.attached? %>
           </div>
         <% end %>
       </div>

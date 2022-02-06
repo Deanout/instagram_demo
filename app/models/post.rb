@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   validates :body, presence: true, length: { minimum: 10 }
 
-  has_noticed_notifications
+  has_noticed_notifications model_name: 'Notification'
 
   has_many_attached :images
 
