@@ -36,6 +36,7 @@ jobs:
       - name: Install Imagemagick
         run: sudo apt-get install imagemagick
       - name: Install LibVips
+        run: sudo apt-get install -y libvips-dev
       # Add or replace database setup steps here
       - name: Set up database schema
         run: bin/rails db:schema:load
