@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserController < ApplicationController
   include UsersHelper
   before_action :set_friendly_user

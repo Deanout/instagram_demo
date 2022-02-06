@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module UsersHelper
   include ActionView::RecordIdentifier
   def following?(user)

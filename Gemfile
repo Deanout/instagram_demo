@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -9,8 +11,8 @@ gem 'rails', '~> 7.0.1'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+# Use pg as the database for Active Record
+gem 'pg', '~> 1.1'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
@@ -53,7 +55,12 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'brakeman'
+  gem 'bundler-audit'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rubocop'
+  gem 'rubocop-rails'
+  gem 'ruby_audit'
 end
 
 group :development do
@@ -77,8 +84,8 @@ gem 'devise', '~> 4.8'
 
 gem 'simple_form', '~> 5.1'
 
-gem "noticed", "~> 1.5"
+gem 'noticed', '~> 1.5'
 
-gem "image_processing", "~> 1.12"
+gem 'image_processing', '~> 1.12'
 
-gem "friendly_id", "~> 5.4"
+gem 'friendly_id', '~> 5.4'
