@@ -3,13 +3,13 @@
 one:
   recipient: one
   recipient_type: Recipient
-  type: 
-  params: 
+  type: "CommentNotification"
+  params:
   read_at: 2022-01-28 20:34:33
 
 two:
   recipient: two
   recipient_type: Recipient
-  type: 
-  params: 
+  type: "CommentNotification"
+  params:
   read_at: 2022-01-28 20:34:33

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PostsHelper
   def construct_timeline
     Post.where('user_id IN (?) OR user_id = ? ',

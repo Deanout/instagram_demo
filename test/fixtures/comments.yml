@@ -3,7 +3,9 @@
 one:
   body: MyText
   post: one
+  user: regular
 
 two:
   body: MyText
-  post: two
+  post: one
+  user: regular
